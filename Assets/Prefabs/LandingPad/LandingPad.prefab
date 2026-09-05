@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 1659547653441505154}
   - component: {fileID: 2334675340558149800}
   - component: {fileID: 1378425208164977953}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: LandingPad
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -110,7 +110,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5563883732867637833}
   - component: {fileID: 8212941953381601770}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Sprite
   m_TagString: Untagged
   m_Icon: {fileID: 0}
