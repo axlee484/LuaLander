@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Reflection.Metadata;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -12,6 +13,8 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private Timer landingTimer;
     [Range(0f, 180f)]
     [SerializeField] private float maxlandingAngleDegrees = 5f;
+    [SerializeField] private float maxSafeImpactSpeed = 10f;
+    [SerializeField] private float damagePerImpactSpeed = 10f;
 
     void Start()
     {
@@ -46,6 +49,15 @@ public class PlayerController : MonoBehaviour
     }
 
 
+    private float GetCollisionImpact(Collision2D collision)
+    {
+        print("Collision impact: "+collision.relativeVelocity.magnitude);
+        if(collision.relativeVelocity.magnitude <= maxSafeImpactSpeed) return 0;
+        var excessSpeed = collision.relativeVelocity.magnitude - maxSafeImpactSpeed;
+        return damagePerImpactSpeed*excessSpeed;
+    }
+
+
     private void HandleLandingPad(Collision2D collision)
     {
         if(health.CurrentHealth <= 0) return;
@@ -57,6 +69,8 @@ public class PlayerController : MonoBehaviour
 
     void OnCollisionEnter2D(Collision2D collision)
     {
+        var impact = GetCollisionImpact(collision);
+        health.TakeDamage(impact);
         if(collision.gameObject.TryGetComponent<LandingPad>(out var _))
         {
             HandleLandingPad(collision);

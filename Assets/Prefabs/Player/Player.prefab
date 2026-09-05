@@ -152,6 +152,8 @@ MonoBehaviour:
   hitBox: {fileID: 6897369617439320605}
   landingTimer: {fileID: 4872615242801247801}
   maxlandingAngleDegrees: 90
+  maxSafeImpactSpeed: 5
+  damagePerImpactSpeed: 8
 --- !u!114 &3741333771018505490
 MonoBehaviour:
   m_ObjectHideFlags: 0
