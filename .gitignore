@@ -1,0 +1,54 @@
+# Unity-generated folders
+[Ll]ibrary/
+[Tt]emp/
+[Oo]bj/
+[Bb]uild/
+[Bb]uilds/
+[Ll]ogs/
+[Uu]ser[Ss]ettings/
+
+# Unity generated assets and reports
+*.csproj
+*.unityproj
+*.sln
+*.suo
+*.tmp
+*.user
+*.userprefs
+*.pidb
+*.booproj
+*.svd
+*.pdb
+*.mdb
+*.opendb
+*.VC.db
+*.log
+*.pidb.meta
+*.pdb.meta
+*.mdb.meta
+
+# Unity package manager and editor cache
+sysinfo.txt
+*.apk
+*.aab
+*.unitypackage
+*.unitypackage.meta
+MemoryCaptures/
+Recordings/
+
+# Visual Studio / Rider / VS Code workspace files
+.vs/
+.vscode/
+.idea/
+*.sln.iml
+
+# OS-generated files
+.DS_Store
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+
+# Crash and profiler dumps
+crashlytics-build.properties
+*.stackdump
+*.dmp
