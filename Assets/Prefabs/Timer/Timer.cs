@@ -1,39 +1,55 @@
 using System;
 using UnityEngine;
 
-public class Timer : MonoBehaviour
+public class Timer: MonoBehaviour
 {
     [SerializeField] private float timeOut = 1f;
+    [SerializeField] private bool isFixedTimeScale = false;
     public float TimeOut => timeOut;
     private float timeLeft = 0f;
-    bool isRunning = false;
 
     public event Action OnTimeOut;
+    private void Start()
+    {
+        enabled = false;
+    }
     public void StartTimer()
     {
-        isRunning = true;
+        
+        enabled = true;
+        timeLeft = timeOut;
     }
 
-    public void Stop()
+    public void ResetTimer()
+    {
+        enabled = false;
+        timeLeft = timeOut;
+    }
+
+    private void StopTimer()
     {
         timeLeft = 0f;
-        isRunning = false;
+        OnTimeOut?.Invoke();
+        enabled = false;
     }
 
-    public void Reset()
+
+    private void Tick()
     {
-        timeLeft = timeOut;
-        isRunning = false;
+        if(timeLeft <= 0) StopTimer();
+        timeLeft -= Time.deltaTime;
     }
 
     void Update()
     {
-        if(!isRunning) return;
-        timeLeft -= Time.deltaTime;
-        if(timeLeft <= 0)
-        {
-            Stop();
-            OnTimeOut?.Invoke();
-        }
+        if(isFixedTimeScale) return;
+        Tick();
+        
+    }
+
+    void FixedUpdate()
+    {
+        if(!isFixedTimeScale) return;
+        Tick();
     }
 }
