@@ -10,20 +10,12 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private Health health;
     [SerializeField] private HurtBox hurtBox;
     [SerializeField] private HitBox hitBox;
-    [SerializeField] private Timer landingTimer;
-    [Range(0f, 180f)]
-    [SerializeField] private float maxlandingAngleDegrees = 5f;
     [SerializeField] private float maxSafeImpactSpeed = 10f;
     [SerializeField] private float damagePerImpactSpeed = 10f;
 
-    void Start()
-    {
-        landingTimer.OnTimeOut += OnLandingTimeOut;
-    }
-    void OnLandingTimeOut()
-    {
-        print("Landed");
-    }
+
+    
+
 
     private void GetInput()
     {
@@ -41,13 +33,6 @@ public class PlayerController : MonoBehaviour
         }
     }
 
-    private bool IsWithinLandingAngle(Collision2D collision)
-    {
-        var landingAngleDot = Vector2.Dot(collision.collider.transform.up, transform.up);
-        var minLandingDot = Mathf.Cos(Mathf.Deg2Rad*maxlandingAngleDegrees);
-        return landingAngleDot > minLandingDot;
-    }
-
 
     private float GetCollisionImpact(Collision2D collision)
     {
@@ -57,48 +42,13 @@ public class PlayerController : MonoBehaviour
         return damagePerImpactSpeed*excessSpeed;
     }
 
-
-    private void HandleLandingPad(Collision2D collision)
-    {
-        if(health.CurrentHealth <= 0) return;
-        if(!IsWithinLandingAngle(collision)) return;
-
-        landingTimer.StartTimer();
-        print("Landing Started");
-    }
-
     void OnCollisionEnter2D(Collision2D collision)
     {
         var impact = GetCollisionImpact(collision);
         health.TakeDamage(impact);
-        if(collision.gameObject.TryGetComponent<LandingPad>(out var _))
-        {
-            HandleLandingPad(collision);
-        }
     }
 
-    void OnCollisionStay2D(Collision2D collision)
-    {
-        if(!collision.gameObject.TryGetComponent<LandingPad>(out var _)) return;
-        
-        if(!IsWithinLandingAngle(collision)) {
-            landingTimer.ResetTimer();
-            print("Toppled");
-            return;
-        }
-        if(landingTimer.enabled) return;
-        HandleLandingPad(collision);
-        
-    }
 
-    void OnCollisionExit2D(Collision2D collision)
-    {
-        if(collision.gameObject.TryGetComponent<LandingPad>(out var landingPad))
-        {
-            print("Landing failed Collision Exit");
-            landingTimer.ResetTimer();
-        }
-    }
 
 
     void Update()

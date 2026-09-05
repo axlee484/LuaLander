@@ -17,6 +17,7 @@ GameObject:
   - component: {fileID: 3608219531108645403}
   - component: {fileID: 6897369617439320605}
   - component: {fileID: 9068425889104848059}
+  - component: {fileID: 6186135705063153529}
   m_Layer: 6
   m_Name: Player
   m_TagString: Untagged
@@ -150,8 +151,6 @@ MonoBehaviour:
   health: {fileID: 7879783973960366331}
   hurtBox: {fileID: 3741333771018505490}
   hitBox: {fileID: 6897369617439320605}
-  landingTimer: {fileID: 4872615242801247801}
-  maxlandingAngleDegrees: 90
   maxSafeImpactSpeed: 5
   damagePerImpactSpeed: 8
 --- !u!114 &3741333771018505490
@@ -226,6 +225,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::StatusManager
   immuneStatusEffects: 00000000
+--- !u!114 &6186135705063153529
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 944940811926604945}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ff54414cd1674271baf965bcc08ae997, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::LandingController
+  landingTimer: {fileID: 4872615242801247801}
+  maxlandingAngleDegrees: 5
 --- !u!1 &3491401852073292519
 GameObject:
   m_ObjectHideFlags: 0
