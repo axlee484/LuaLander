@@ -20,6 +20,7 @@ public class HurtBox : MonoBehaviour
     {
         collision.gameObject.TryGetComponent<HitBox>(out var hitBox);
         if (hitBox == null) return;
+        health.TakeDamage(hitBox.Damage);
         var statusEffects = hitBox.StatusEffects;
         foreach(var statusEffect in statusEffects)
         {

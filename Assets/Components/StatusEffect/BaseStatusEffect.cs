@@ -10,8 +10,6 @@ public abstract class BaseStatusEffect
     public virtual STATUS_EFFECT_TYPE StatusEffectType => statusEffectType;
     [SerializeField] private float statusDuration = 0f;
     public virtual float StatusDuration => statusDuration;
-    [SerializeField] private float baseDamage = 0f;
-    public virtual float BaseDamage => baseDamage;
     public event Action<BaseStatusEffect> OnRemoved;
 
     protected virtual void InvokeOnRemoved()
@@ -24,11 +22,8 @@ public abstract class BaseStatusEffect
         yield return new WaitForSeconds(StatusDuration);
         InvokeOnRemoved();
     }
-    public virtual void ApplyEffect(GameObject target)
-    {
-        target.TryGetComponent(out Health health);
-        health.TakeDamage(BaseDamage);
-    }
+
+    public virtual void ApplyEffect(GameObject target){}
     public virtual void UpdateEffect(GameObject target){}
     public virtual void RemoveEffect(GameObject target){}
 }
