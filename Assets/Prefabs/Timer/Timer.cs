@@ -5,7 +5,7 @@ public class Timer: MonoBehaviour
 {
     [SerializeField] private float timeOut = 1f;
     [SerializeField] private bool isFixedTimeScale = false;
-    public float TimeOut => timeOut;
+    public float TimeOut  {get => timeOut; set=>  timeOut = value;}
     private float timeLeft = 0f;
 
     public event Action OnTimeOut;
