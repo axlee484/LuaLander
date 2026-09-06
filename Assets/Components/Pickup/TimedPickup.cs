@@ -8,14 +8,14 @@ public class TimedPickup : Pickup
     void Awake()
     {
         pickupTimer.CountDown = pickupTime;
-        pickupTimer.TimeOut += DestroySelf;
+        pickupTimer.TimeOut += OnTimeOut;
     }
-
-    public override void DestroySelf()
+    private void OnTimeOut()
     {
         InvokePickupEvent(otherCollider);
-        base.DestroySelf();
+        DestroySelf();
     }
+
     public override void OnPickup(Collider2D otherCollider)
     {
         pickupTimer.StartTimer();
@@ -25,6 +25,5 @@ public class TimedPickup : Pickup
     {
         pickupTimer.ResetTimer();
         print("Pickup reset");
-        base.OnPickup(collision);
     }
 }
