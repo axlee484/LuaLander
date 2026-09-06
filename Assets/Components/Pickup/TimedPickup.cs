@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class TimedPickup : MonoBehaviour, IPickable
+public class TimedPickup : Pickup
 {
     [SerializeField] private float pickupTime = 5f;
     [SerializeField] private Timer pickupTimer;
@@ -9,15 +9,9 @@ public class TimedPickup : MonoBehaviour, IPickable
         pickupTimer.TimeOut = pickupTime;
         pickupTimer.OnTimeOut += DestroySelf;
     }
-    public void DestroySelf()
-    {
-        Destroy(gameObject);
-    }
-
-    public void OnTriggerEnter2D(Collider2D otherCollider)
+    public override void OnPickup(Collider2D otherCollider)
     {
         pickupTimer.StartTimer();
-        print("Pickup triggered");
     }
     public void OnTriggerExit2D(Collider2D collision)
     {

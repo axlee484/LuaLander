@@ -1,16 +1,17 @@
 using UnityEngine;
 
-public  class InstantPickable : MonoBehaviour, IPickable
+public abstract class Pickup: MonoBehaviour
 {
-    public void DestroySelf()
+    public virtual void DestroySelf()
     {
         Destroy(gameObject);
     }
+
     private void OnTriggerEnter2D(Collider2D otherCollider)
     {
         OnPickup(otherCollider);
     }
-    public void OnPickup(Collider2D otherCollider)
+    public virtual void OnPickup(Collider2D otherCollider)
     {
         DestroySelf();
     }
