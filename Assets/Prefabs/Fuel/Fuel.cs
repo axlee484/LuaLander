@@ -2,8 +2,6 @@ using UnityEngine;
 
 public class Fuel : MonoBehaviour
 {
-   public void DestroySelf()
-    {
-        Destroy(gameObject);
-    }
+    [SerializeField] private float fuelAmount = 100f;
+    public float FuelAmount => fuelAmount;
 }

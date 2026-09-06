@@ -4,14 +4,6 @@ using UnityEngine;
 public class Coin : MonoBehaviour
 {
     [SerializeField] private float value;
-    public event Action<Collider2D> CoinCollected;
+    public float Value => value;
    
-    void OnTriggerEnter2D(Collider2D collider)
-    {
-        CoinCollected?.Invoke(collider);
-    }
-    public void DestroySelf()
-    {
-        Destroy(gameObject);
-    }
 }
