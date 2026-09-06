@@ -2,5 +2,5 @@ using UnityEngine;
 
 public interface IPickable
 {
-    void DestroySelf();
+    public void DestroySelf();
 }

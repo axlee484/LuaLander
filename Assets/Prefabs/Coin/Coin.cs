@@ -1,7 +1,7 @@
 using System;
 using UnityEngine;
 
-public class Coin : MonoBehaviour
+public class Coin : MonoBehaviour, IPickable
 {
     [SerializeField] private float value;
     public event Action<Collider2D> CoinCollected;
@@ -10,5 +10,8 @@ public class Coin : MonoBehaviour
     {
         CoinCollected?.Invoke(collider);
     }
-
+    public void DestroySelf()
+    {
+        Destroy(gameObject);
+    }
 }
