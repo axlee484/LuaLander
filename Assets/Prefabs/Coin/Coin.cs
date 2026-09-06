@@ -1,7 +1,7 @@
 using System;
 using UnityEngine;
 
-public class Coin : MonoBehaviour, IPickable
+public class Coin : MonoBehaviour
 {
     [SerializeField] private float value;
     public event Action<Collider2D> CoinCollected;
