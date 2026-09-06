@@ -32,7 +32,6 @@ public class LandingController : MonoBehaviour
         if(!IsWithinLandingAngle(collision)) return;
 
         landingTimer.StartTimer();
-        print("Landing Started");
     }
     void OnCollisionEnter2D(Collision2D collision)
     {
@@ -48,7 +47,6 @@ public class LandingController : MonoBehaviour
         
         if(!IsWithinLandingAngle(collision)) {
             landingTimer.ResetTimer();
-            print("Toppled");
             return;
         }
         if(landingTimer.enabled) return;
@@ -61,7 +59,6 @@ public class LandingController : MonoBehaviour
     {
         if(collision.gameObject.TryGetComponent<LandingPad>(out var landingPad))
         {
-            print("Landing failed Collision Exit");
             landingTimer.ResetTimer();
         }
     }
