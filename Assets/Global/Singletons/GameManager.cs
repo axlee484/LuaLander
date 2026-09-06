@@ -24,10 +24,9 @@ public class GameManager : MonoBehaviour
         scoreManager.AddScore(coin.Value);
     }
     
-    void OnPickup(Collider2D collider)
+    void OnPickup(GameObject sender, Collider2D otherCollider)
     {
-        var gameObject = collider.gameObject;
-        if(gameObject.TryGetComponent<Coin>(out var coin))
+        if(sender.TryGetComponent<Coin>(out var coin))
         {
             HandleCoinCollection(coin);
         }

@@ -22,6 +22,6 @@ public abstract class Pickup: MonoBehaviour
     }
     public void InvokePickupEvent(Collider2D collider)
     {
-        eventManager.InvokePickupEvent(collider);
+        eventManager.InvokePickupEvent(gameObject, collider);
     }
 }

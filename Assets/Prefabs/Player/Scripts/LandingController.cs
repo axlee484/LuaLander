@@ -10,7 +10,7 @@ public class LandingController : MonoBehaviour
 
     void Start()
     {
-        landingTimer.OnTimeOut += OnLandingTimeOut;
+        landingTimer.TimeOut += OnLandingTimeOut;
         health = GetComponent<Health>();
     }
 

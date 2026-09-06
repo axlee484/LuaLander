@@ -3,12 +3,12 @@ using UnityEngine;
 
 public class Timer: MonoBehaviour
 {
-    [SerializeField] private float timeOut = 1f;
+    [SerializeField] private float countDown = 1f;
     [SerializeField] private bool isFixedTimeScale = false;
-    public float TimeOut  {get => timeOut; set=>  timeOut = value;}
+    public float CountDown  {get => countDown; set=>  countDown = value;}
     private float timeLeft = 0f;
 
-    public event Action OnTimeOut;
+    public event Action TimeOut;
     private void Start()
     {
         enabled = false;
@@ -17,19 +17,19 @@ public class Timer: MonoBehaviour
     {
         
         enabled = true;
-        timeLeft = timeOut;
+        timeLeft = countDown;
     }
 
     public void ResetTimer()
     {
         enabled = false;
-        timeLeft = timeOut;
+        timeLeft = countDown;
     }
 
     private void StopTimer()
     {
         timeLeft = 0f;
-        OnTimeOut?.Invoke();
+        TimeOut?.Invoke();
         enabled = false;
     }
 

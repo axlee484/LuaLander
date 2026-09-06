@@ -7,8 +7,8 @@ public class TimedPickup : Pickup
     private Collider2D otherCollider;
     void Awake()
     {
-        pickupTimer.TimeOut = pickupTime;
-        pickupTimer.OnTimeOut += DestroySelf;
+        pickupTimer.CountDown = pickupTime;
+        pickupTimer.TimeOut += DestroySelf;
     }
 
     public override void DestroySelf()

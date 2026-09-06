@@ -13,6 +13,6 @@ public class ScoreManager : MonoBehaviour
     public void AddScore(float score)
     {
         this.score += score;
-        print($"Score: {score}");
+        print($"Score: {this.score}");
     }
 }
