@@ -48,9 +48,7 @@ public class PlayerController : MonoBehaviour
         health.TakeDamage(impact);
     }
 
-
-
-
+    
     void Update()
     {
         GetInput();

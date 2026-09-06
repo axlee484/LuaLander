@@ -50,6 +50,12 @@ TagManager:
   - name: Default
     uniqueID: 0
     locked: 0
+  - name: PowerUp
+    uniqueID: 2659748369
+    locked: 0
+  - name: Player
+    uniqueID: 1950798803
+    locked: 0
   m_RenderingLayers:
   - Default
   m_MigratedRenderPipelines: []
