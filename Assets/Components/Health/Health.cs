@@ -13,7 +13,6 @@ public class Health : MonoBehaviour
     public void TakeDamage(float damage)
     {
         currentHealth -= damage;
-        print("Health: "+currentHealth);
         if (currentHealth <= 0)
         {
             // Handle death logic here
