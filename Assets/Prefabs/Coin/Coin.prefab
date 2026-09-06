@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 1341369612523330882}
   - component: {fileID: 2328922240253305515}
   - component: {fileID: 6860759039756670325}
+  - component: {fileID: -1512980419638860109}
   m_Layer: 11
   m_Name: Coin
   m_TagString: Untagged
@@ -83,6 +84,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Coin
   value: 0
+--- !u!114 &-1512980419638860109
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4864845496087149444}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 40df5c46b6e62939987683181814d2ce, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Pickable
 --- !u!1 &5515094489997047067
 GameObject:
   m_ObjectHideFlags: 0

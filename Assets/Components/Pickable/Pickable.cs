@@ -1,16 +1,17 @@
 using UnityEngine;
 
-public class Pickable : MonoBehaviour
+public  class Pickable : MonoBehaviour
 {
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
+    public virtual void DestroySelf()
     {
-        
+        Destroy(gameObject);
     }
-
-    // Update is called once per frame
-    void Update()
+    public virtual void PickUp(Collider2D otherCollider)
     {
-        
+        DestroySelf();
+    }
+    private void OnTriggerEnter2D(Collider2D otherCollider)
+    {
+        PickUp(otherCollider);
     }
 }
