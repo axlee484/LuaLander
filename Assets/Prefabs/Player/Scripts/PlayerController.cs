@@ -36,7 +36,7 @@ public class PlayerController : MonoBehaviour
 
     private float GetCollisionImpact(Collision2D collision)
     {
-        print("Collision impact: "+collision.relativeVelocity.magnitude);
+        // print("Collision impact: "+collision.relativeVelocity.magnitude);
         if(collision.relativeVelocity.magnitude <= maxSafeImpactSpeed) return 0;
         var excessSpeed = collision.relativeVelocity.magnitude - maxSafeImpactSpeed;
         return damagePerImpactSpeed*excessSpeed;
