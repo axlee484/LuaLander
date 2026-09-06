@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class TimedPickup : Pickup
 {
-    [SerializeField] private float pickupTime = 5f;
+    [SerializeField] private float pickupTime = 3f;
     [SerializeField] private Timer pickupTimer;
     private Collider2D otherCollider;
     void Awake()
