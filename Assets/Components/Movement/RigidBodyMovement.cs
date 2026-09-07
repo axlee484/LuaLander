@@ -11,7 +11,9 @@ public class RigidBodyMovement : MonoBehaviour, IMovement
 
     public bool IsControlEnabled {get; set;} = true;
     bool isRotationApplied = false;
-    bool isForceApplied = false;
+    public bool IsRotationApplied => isRotationApplied;
+    private bool isForceApplied = false;
+    public bool IsForceApplied => isForceApplied;
     private Vector2 forceDirection = Vector2.zero;
     private Vector2 rotationDirection = Vector2.zero;  
     private Rigidbody2D body;

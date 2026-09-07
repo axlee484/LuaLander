@@ -9,7 +9,7 @@ public class Timer: MonoBehaviour
     private float timeLeft = 0f;
 
     public event Action TimeOut;
-    private void Start()
+    private void Awake()
     {
         enabled = false;
     }
