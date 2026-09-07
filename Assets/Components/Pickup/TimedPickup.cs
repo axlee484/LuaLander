@@ -24,6 +24,5 @@ public class TimedPickup : Pickup
     public void OnTriggerExit2D(Collider2D collision)
     {
         pickupTimer.ResetTimer();
-        print("Pickup reset");
     }
 }

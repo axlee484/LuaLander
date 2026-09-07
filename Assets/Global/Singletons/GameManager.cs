@@ -9,7 +9,6 @@ public class GameManager : MonoBehaviour
     {
         Instance = this;
         DontDestroyOnLoad(gameObject);
-        print("Gamemanager "+Instance);
     }
     void Start()
     {

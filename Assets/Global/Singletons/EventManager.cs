@@ -14,6 +14,5 @@ public class EventManager: MonoBehaviour
     {
         Instance = this;
         DontDestroyOnLoad(gameObject);
-        print("EventManager instance + "+ Instance);
     }
 }

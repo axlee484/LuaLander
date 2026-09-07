@@ -8,7 +8,6 @@ public class ScoreManager : MonoBehaviour
     {
         Instance = this;
         DontDestroyOnLoad(gameObject);
-        print("ScoreMnagre +" + Instance);
     }
     public void AddScore(float score)
     {

@@ -16,7 +16,7 @@ public class Health : MonoBehaviour
         if (currentHealth <= 0)
         {
             // Handle death logic here
-            Debug.Log($"{gameObject.name} has died.");
+            print($"{gameObject.name} has died.");
         }
     }
 }
