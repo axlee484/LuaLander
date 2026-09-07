@@ -15,20 +15,13 @@ public class GameManager : MonoBehaviour
         scoreManager = ScoreManager.Instance;
 
         eventManager = EventManager.Instance;
-        eventManager.PickupEvent += OnPickup;
+        eventManager.CoinPickupEvent += OnCoinPickup;
     }
 
-    void HandleCoinCollection(Coin coin)
+    void OnCoinPickup(Coin coin, Collider2D otherCollider)
     {
         scoreManager.AddScore(coin.Value);
     }
-    
-    void OnPickup(GameObject sender, Collider2D otherCollider)
-    {
-        if(sender.TryGetComponent<Coin>(out var coin))
-        {
-            HandleCoinCollection(coin);
-        }
-    }
+
 
 }

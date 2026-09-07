@@ -6,6 +6,7 @@ public class RigidBodyMovement : MonoBehaviour, IMovement
 {
     [SerializeField] float maxForce = 100f;
     [SerializeField] float maxRotation = 100f;
+    private FuelManager fuelManager;
     private float currentForce;
     private float currentRotation;
 
@@ -20,6 +21,7 @@ public class RigidBodyMovement : MonoBehaviour, IMovement
     void Awake()
     {
         body = GetComponent<Rigidbody2D>();
+        fuelManager = GetComponent<FuelManager>();
         currentForce = maxForce;
         currentRotation = maxRotation;
     }
@@ -62,19 +64,28 @@ public class RigidBodyMovement : MonoBehaviour, IMovement
         rotationDirection = direction;
     }
 
-
-    void FixedUpdate()
+    private void Move()
     {
         if(!IsControlEnabled) return;
+        
+        if(fuelManager.FuelAmount <= 0) return;
         if(isForceApplied)
         {
             body.AddForce(currentForce * Time.fixedDeltaTime * forceDirection);
+            fuelManager.DepleteFuel(fuelManager.FuelPerSecond*Time.fixedDeltaTime);
             isForceApplied = false;
         }
         if(isRotationApplied)
         {
             body.AddTorque(-rotationDirection.x * currentRotation * Time.fixedDeltaTime);
+            fuelManager.DepleteFuel(fuelManager.FuelPerSecond*Time.fixedDeltaTime);
             isRotationApplied = false;
         }
+    }
+
+
+    void FixedUpdate()
+    {
+        Move();
     }
 }

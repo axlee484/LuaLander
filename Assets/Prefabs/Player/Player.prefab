@@ -21,6 +21,7 @@ GameObject:
   - component: {fileID: 7716034667253486134}
   - component: {fileID: 7138773741015040112}
   - component: {fileID: 4256714955695224123}
+  - component: {fileID: 3320492471544657783}
   m_Layer: 6
   m_Name: Player
   m_TagString: Untagged
@@ -297,6 +298,20 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::PlayerVisuals
   thrustParticlesNode: {fileID: 8715716883230818217}
   thurstTimer: {fileID: 5256101695983595572}
+--- !u!114 &3320492471544657783
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 944940811926604945}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b47851892cc1d308db74e7430a7349cf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::FuelManager
+  fuelAmount: 100
+  fuelPerSecond: 10
 --- !u!1 &3491401852073292519
 GameObject:
   m_ObjectHideFlags: 0

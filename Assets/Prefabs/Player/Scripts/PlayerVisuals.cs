@@ -9,12 +9,14 @@ public class PlayerVisuals : MonoBehaviour
     private PlayerController playerController;
     private List<ParticleSystem.EmissionModule> thrustParticles = new();
     private RigidBodyMovement movement;
+    private FuelManager fuelManager;
 
     
     private void Awake()
     {
         playerController = GetComponent<PlayerController>();
         movement = GetComponent<RigidBodyMovement>();
+        fuelManager = GetComponent<FuelManager>();
 
         var thrustParticlesComps = thrustParticlesNode.GetComponentsInChildren<ParticleSystem>();
         foreach(var thrustParticlesComp in thrustParticlesComps)
@@ -45,7 +47,7 @@ public class PlayerVisuals : MonoBehaviour
 
     private void PlayThrustParticles()
     {
-        if(!movement.IsControlEnabled)
+        if(!movement.IsControlEnabled || fuelManager.FuelAmount <= 0)
         {
             thurstTimer.ResetTimer();
             SetAllThrustParticlesActive(false); 
