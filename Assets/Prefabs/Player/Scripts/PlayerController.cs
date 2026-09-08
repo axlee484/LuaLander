@@ -12,6 +12,17 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private HitBox hitBox;
     [SerializeField] private float maxSafeImpactSpeed = 10f;
     [SerializeField] private float damagePerImpactSpeed = 10f;
+    [SerializeField] private AudioClip collideSound;
+    [SerializeField] private AudioSource audioSource;
+    private FuelManager fuelManager;
+    private AudioManager audioManager;
+
+    private void Awake()
+    {
+        audioManager = AudioManager.Instance;
+        fuelManager = GetComponent<FuelManager>();
+        // audioSource.clip = thrustSound;
+    }
 
 
     
@@ -19,6 +30,8 @@ public class PlayerController : MonoBehaviour
 
     private void GetInput()
     {
+        if(fuelManager.FuelRemaning<=0) movement.IsControlEnabled = false;
+        
         if(Keyboard.current.wKey.isPressed)
         {
             movement.Move(transform.up);
@@ -39,6 +52,7 @@ public class PlayerController : MonoBehaviour
         print("Collision impact: "+collision.relativeVelocity.magnitude);
         if(collision.relativeVelocity.magnitude <= maxSafeImpactSpeed) return 0;
         var excessSpeed = collision.relativeVelocity.magnitude - maxSafeImpactSpeed;
+        audioManager.PlaySfx(collideSound);
         return damagePerImpactSpeed*excessSpeed;
     }
 

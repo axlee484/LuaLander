@@ -3,6 +3,8 @@ using UnityEngine;
 public abstract class Pickup: MonoBehaviour
 {
     private EventManager eventManager;
+    [SerializeField] private AudioClip pickupSound;
+    public AudioClip PickupSound =>  pickupSound;
     private void Start()
     {
         eventManager = EventManager.Instance;
