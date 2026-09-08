@@ -47,7 +47,7 @@ public class PlayerVisuals : MonoBehaviour
 
     private void PlayThrustParticles()
     {
-        if(!movement.IsControlEnabled || fuelManager.FuelAmount <= 0)
+        if(!movement.IsControlEnabled || fuelManager.FuelRemaning <= 0)
         {
             thurstTimer.ResetTimer();
             SetAllThrustParticlesActive(false); 

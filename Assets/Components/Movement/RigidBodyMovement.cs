@@ -68,7 +68,7 @@ public class RigidBodyMovement : MonoBehaviour, IMovement
     {
         if(!IsControlEnabled) return;
         
-        if(fuelManager.FuelAmount <= 0) return;
+        if(fuelManager.FuelRemaning <= 0) return;
         if(isForceApplied)
         {
             body.AddForce(currentForce * Time.fixedDeltaTime * forceDirection);
@@ -78,7 +78,7 @@ public class RigidBodyMovement : MonoBehaviour, IMovement
         if(isRotationApplied)
         {
             body.AddTorque(-rotationDirection.x * currentRotation * Time.fixedDeltaTime);
-            fuelManager.DepleteFuel(fuelManager.FuelPerSecond*Time.fixedDeltaTime);
+            fuelManager.DepleteFuel(fuelManager.FuelPerSecondOnRotate*Time.fixedDeltaTime);
             isRotationApplied = false;
         }
     }

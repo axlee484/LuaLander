@@ -310,8 +310,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b47851892cc1d308db74e7430a7349cf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::FuelManager
-  fuelAmount: 100
+  maxFuel: 100
   fuelPerSecond: 10
+  fuelPerSecondOnRotate: 1
 --- !u!1 &3491401852073292519
 GameObject:
   m_ObjectHideFlags: 0

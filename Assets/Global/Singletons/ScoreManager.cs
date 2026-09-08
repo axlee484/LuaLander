@@ -1,8 +1,10 @@
+using System;
 using UnityEngine;
 
 public class ScoreManager : MonoBehaviour
 {
-    private float score = 0f;
+    private int score = 0;
+    public int Score => score;
     public static ScoreManager Instance;
     void Awake()
     {
@@ -11,7 +13,7 @@ public class ScoreManager : MonoBehaviour
     }
     public void AddScore(float score)
     {
-        this.score += score;
+        this.score += (int) Math.Round(score);
         print($"Score: {this.score}");
     }
 }

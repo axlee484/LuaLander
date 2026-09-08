@@ -2,11 +2,19 @@ using UnityEngine;
 
 public class FuelManager : MonoBehaviour
 {
-    [SerializeField] private float fuelAmount = 100f;
+    [SerializeField] private float maxFuel = 100f;
+    public float MaxFuel => maxFuel;
+    private float fuelRemaining;
     [SerializeField] private float fuelPerSecond = 10f;
-    public float FuelAmount => fuelAmount;
+    [SerializeField] private float fuelPerSecondOnRotate = 0f;
+    public float FuelPerSecondOnRotate => fuelPerSecondOnRotate;
+    public float FuelRemaning => fuelRemaining;
     public float FuelPerSecond => fuelPerSecond;
     private EventManager eventManager;
+    void Awake()
+    {
+        fuelRemaining = maxFuel;
+    }
     void Start()
     {
         eventManager = EventManager.Instance;
@@ -14,15 +22,15 @@ public class FuelManager : MonoBehaviour
     }
     public void DepleteFuel(float depleteAmount)
     {
-        fuelAmount -= depleteAmount;
-        if(fuelAmount < 0) fuelAmount = 0;
-        print("fuelAmount left: "+fuelAmount);
+        fuelRemaining -= depleteAmount;
+        if(fuelRemaining < 0) fuelRemaining = 0;
+        print("fuelAmount left: "+fuelRemaining);
     }
 
     void OnFuelPickup(Fuel fuel, Collider2D otherCollider)
     {
-        fuelAmount += fuel.FuelAmount;
-        print($"Fuel Amount: {fuelAmount}");
+        fuelRemaining += fuel.FuelAmount;
+        print($"Fuel Amount: {fuelRemaining}");
     }
 
 }
