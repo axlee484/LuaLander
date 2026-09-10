@@ -2,26 +2,31 @@ using System;
 using System.Collections.Generic;
 using UnityEngine;
 
-public abstract class BaseStateMachine<TStateType>: MonoBehaviour where TStateType : Enum
+public abstract class BaseStateMachine<TStateType, TContext>: MonoBehaviour 
+where TStateType : Enum
+where TContext: struct
 {
-    
-    [SerializeField] private IState<TStateType> initialState;
-    private IState<TStateType> currentState;
-    private readonly Dictionary<TStateType, IState<TStateType>> states;
+    [SerializeField] private TStateType initalState;
+    protected TStateType InitialState => initalState;
+    private BaseState<TStateType, TContext> currentState;
+    protected readonly Dictionary<TStateType, BaseState<TStateType, TContext>> states = new();
+    public TContext context;
 
-    void Awake()
+    protected abstract void Setup();
+
+    virtual protected void Awake()
     {
-        var states = GetComponents<IState<TStateType>>();
-        foreach (var state in states)
+        Setup();
+        currentState = states[initalState];
+        foreach(var (stateName, state) in states)
         {
-            this.states.Add(state.Name, state);
-            state.ChangeState += ChangeState;
+            state.OnChange += ChangeState;
         }
-        currentState = initialState;
+        
     }
-    public void Initialize()
+    public void Start()
     {
-        initialState.Enter();
+        currentState.Enter();
     }
 
     void Update()
@@ -34,7 +39,7 @@ public abstract class BaseStateMachine<TStateType>: MonoBehaviour where TStateTy
         currentState.FixedUpdate();
     }
 
-    void ChangeState(TStateType nextState)
+    public void ChangeState(TStateType nextState)
     {
         currentState.Exit();
         currentState = states[nextState];

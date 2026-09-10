@@ -22,6 +22,7 @@ GameObject:
   - component: {fileID: 7138773741015040112}
   - component: {fileID: 4256714955695224123}
   - component: {fileID: 3320492471544657783}
+  - component: {fileID: 2963107920843433832}
   m_Layer: 6
   m_Name: Player
   m_TagString: Untagged
@@ -161,7 +162,7 @@ MonoBehaviour:
   maxSafeImpactSpeed: 5
   damagePerImpactSpeed: 8
   collideSound: {fileID: 8300000, guid: 6869673ba09bbb8aa850703b016b418c, type: 3}
-  audioSource: {fileID: 0}
+  audioSource: {fileID: 7598689631769065679}
 --- !u!114 &3741333771018505490
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -316,6 +317,19 @@ MonoBehaviour:
   maxFuel: 100
   fuelPerSecond: 10
   fuelPerSecondOnRotate: 1
+--- !u!114 &2963107920843433832
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 944940811926604945}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d7bdcc60e891d72b7a41e838b7522b13, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PlayerStateMachine
+  initalState: 0
 --- !u!1 &2117543062855548385
 GameObject:
   m_ObjectHideFlags: 0
