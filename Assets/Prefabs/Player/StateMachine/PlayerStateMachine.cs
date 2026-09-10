@@ -15,6 +15,7 @@ public struct PlayerContext
     public Health health;
     public FuelManager fuelManager;
     public RigidBodyMovement movement;
+    public Transform playerTransform;
 };
 
 [
@@ -34,6 +35,7 @@ public class PlayerStateMachine : BaseStateMachine<PLAYER_STATE, PlayerContext>
             health = GetComponent<Health>(),
             fuelManager = GetComponent<FuelManager>(),
             movement = GetComponent<RigidBodyMovement>(),
+            playerTransform = GetComponent<Transform>(),
         };
         
         var idleState = new Idle(PLAYER_STATE.IDLE, context);

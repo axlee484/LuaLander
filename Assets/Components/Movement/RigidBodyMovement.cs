@@ -18,6 +18,8 @@ public class RigidBodyMovement : MonoBehaviour, IMovement
     private Vector2 forceDirection = Vector2.zero;
     private Vector2 rotationDirection = Vector2.zero;  
     private Rigidbody2D body;
+    public Vector2 LinearVelocity => body.linearVelocity;
+    public float AngularVelocity => body.angularVelocity;
     void Awake()
     {
         body = GetComponent<Rigidbody2D>();

@@ -24,29 +24,6 @@ public class PlayerController : MonoBehaviour
         // audioSource.clip = thrustSound;
     }
 
-
-    
-
-
-    private void GetInput()
-    {
-        if(fuelManager.FuelRemaning<=0) movement.IsControlEnabled = false;
-        
-        if(Keyboard.current.wKey.isPressed)
-        {
-            movement.Move(transform.up);
-        }
-        if(Keyboard.current.aKey.isPressed)
-        {
-           movement.Rotate(Vector2.left);
-        }
-        else if(Keyboard.current.dKey.isPressed)
-        {
-            movement.Rotate(Vector2.right); 
-        }
-    }
-
-
     private float GetCollisionImpact(Collision2D collision)
     {
         print("Collision impact: "+collision.relativeVelocity.magnitude);
@@ -60,11 +37,5 @@ public class PlayerController : MonoBehaviour
     {
         var impact = GetCollisionImpact(collision);
         health.TakeDamage(impact);
-    }
-
-    
-    void Update()
-    {
-        GetInput();
     }
 }

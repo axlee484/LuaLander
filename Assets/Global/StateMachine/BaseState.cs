@@ -5,7 +5,11 @@ public abstract class BaseState<TStateType, TContext>
 where TStateType : Enum
 where TContext: struct
 {
-    public virtual event Action<TStateType> OnChange;
+    private event Action<TStateType> OnChange;
+    protected void InvokeOnChange(TStateType state)
+    {
+        OnChange?.Invoke(state);
+    }
     private readonly TContext context;
     private readonly TStateType id;
     public TStateType Id => id;
