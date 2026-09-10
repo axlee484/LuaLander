@@ -5,7 +5,7 @@ public abstract class Pickup: MonoBehaviour
     private EventManager eventManager;
     [SerializeField] private AudioClip pickupSound;
     public AudioClip PickupSound =>  pickupSound;
-    private void Start()
+    private void Awake()
     {
         eventManager = EventManager.Instance;
     }

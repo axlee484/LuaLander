@@ -14,12 +14,10 @@ public class FuelManager : MonoBehaviour
     void Awake()
     {
         fuelRemaining = maxFuel;
-    }
-    void Start()
-    {
         eventManager = EventManager.Instance;
         eventManager.FuelPickupEvent += OnFuelPickup;
     }
+    
     public void DepleteFuel(float depleteAmount)
     {
         fuelRemaining -= depleteAmount;
