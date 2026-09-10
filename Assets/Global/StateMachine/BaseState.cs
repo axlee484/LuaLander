@@ -5,7 +5,7 @@ public abstract class BaseState<TStateType, TContext>
 where TStateType : Enum
 where TContext: struct
 {
-    private event Action<TStateType> OnChange;
+    public event Action<TStateType> OnChange;
     protected void InvokeOnChange(TStateType state)
     {
         OnChange?.Invoke(state);
