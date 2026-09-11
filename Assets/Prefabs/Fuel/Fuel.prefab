@@ -108,7 +108,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::TimedPickup
   pickupSound: {fileID: 8300000, guid: fbd9c5bf252a6c14b9bb3a84dba2510c, type: 3}
-  pickupTime: 3
   pickupTimer: {fileID: 5943700218168302569}
 --- !u!1 &3768210605764337246
 GameObject:
@@ -210,6 +209,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 3608968878206449631}
     m_Modifications:
+    - target: {fileID: -1774884005604213557, guid: 234fa2ab07b4fcbc4b66208fbb5dd72a, type: 3}
+      propertyPath: countDown
+      value: 5
+      objectReference: {fileID: 0}
     - target: {fileID: 602387556086072535, guid: 234fa2ab07b4fcbc4b66208fbb5dd72a, type: 3}
       propertyPath: m_LocalPosition.x
       value: -0.55776

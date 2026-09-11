@@ -7,10 +7,13 @@ public class Timer: MonoBehaviour
     [SerializeField] private bool isFixedTimeScale = false;
     public float CountDown  {get => countDown; set=>  countDown = value;}
     private float timeLeft = 0f;
+    public float TimeLeft => timeLeft;
 
     public event Action TimeOut;
+    public event Action Started;
     private void Awake()
     {
+        timeLeft = countDown;
         enabled = false;
     }
     public void StartTimer()
@@ -18,6 +21,7 @@ public class Timer: MonoBehaviour
         
         enabled = true;
         timeLeft = countDown;
+        Started?.Invoke();
     }
 
     public void ResetTimer()
