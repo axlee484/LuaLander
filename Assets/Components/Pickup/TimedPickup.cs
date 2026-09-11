@@ -2,12 +2,10 @@ using UnityEngine;
 
 public class TimedPickup : Pickup
 {
-    [SerializeField] private float pickupTime = 3f;
     [SerializeField] private Timer pickupTimer;
     private Collider2D otherCollider;
     void Awake()
     {
-        pickupTimer.CountDown = pickupTime;
         pickupTimer.TimeOut += OnTimeOut;
     }
     private void OnTimeOut()

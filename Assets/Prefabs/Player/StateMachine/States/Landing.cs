@@ -5,7 +5,6 @@ public class Landing : BaseState<PLAYER_STATE, PlayerContext>
     private Timer landingTimer;
     private PlayerController playerController;
     private float maxlandingAngleDegrees;
-    private float currentLandingAngle;
     private InputActions inputActions;
     private RigidBodyMovement movement;
     private bool isLanding = false;
@@ -16,7 +15,7 @@ public class Landing : BaseState<PLAYER_STATE, PlayerContext>
         maxlandingAngleDegrees = Context.playerController.MaxLandingAngleDegrees;
 
         movement = Context.movement;
-        
+
         inputActions = GameInput.Instance.InputActions;
 
         landingTimer = playerController.LandingTimer;
