@@ -19,29 +19,22 @@ namespace PlayerStates.States
             playerVisuals = Context.playerVisuals;
         }
 
-        private Vector2 GetTiltInput()
-        {
-            var tilt = InputActions.Player.Tilt.ReadValue<float>();
-            if(tilt > 0) return Vector2.right;
-            if(tilt < 0) return Vector2.left;
-            return Vector2.zero;
-        }
+        
         private void Fly()
-        {
-            var linearInput = InputActions.Player.Up;
-            var tiltInput = GetTiltInput();
-
-            
-            if (linearInput.IsPressed())
-            {
-                movement.Move(playerTransform.up);
-            }
-            movement.Rotate(tiltInput);
-            if(!linearInput.IsPressed() && tiltInput == Vector2.zero) 
+        {  
+            var linearInput = InputActions.Player.Up.IsPressed();    
+            var tilt = InputActions.Player.Tilt.ReadValue<float>();
+            if(!linearInput && tilt == 0)
             {
                 InvokeOnChange(PLAYER_STATE.IDLE);
                 return;
-            }              
+            }
+            
+            movement.Move(playerTransform.up);
+            if(tilt > 0) movement.Rotate(Vector2.right);
+            if(tilt < 0) movement.Rotate(Vector2.left);
+            
+
         }
 
         public override void Enter()

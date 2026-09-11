@@ -198,7 +198,6 @@ GameObject:
   - component: {fileID: 3608219531108645403}
   - component: {fileID: 6897369617439320605}
   - component: {fileID: 9068425889104848059}
-  - component: {fileID: 6186135705063153529}
   - component: {fileID: 7716034667253486134}
   - component: {fileID: 7138773741015040112}
   - component: {fileID: 4256714955695224123}
@@ -344,6 +343,8 @@ MonoBehaviour:
   damagePerImpactSpeed: 8
   collideSound: {fileID: 8300000, guid: 6869673ba09bbb8aa850703b016b418c, type: 3}
   audioSource: {fileID: 7598689631769065679}
+  landingTimer: {fileID: 4872615242801247801}
+  maxlandingAngleDegrees: 5
 --- !u!114 &3741333771018505490
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -416,20 +417,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::StatusManager
   immuneStatusEffects: 00000000
---- !u!114 &6186135705063153529
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 944940811926604945}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ff54414cd1674271baf965bcc08ae997, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::LandingController
-  landingTimer: {fileID: 4872615242801247801}
-  maxlandingAngleDegrees: 5
 --- !u!111 &7716034667253486134
 Animation:
   m_ObjectHideFlags: 0
@@ -509,7 +496,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d7bdcc60e891d72b7a41e838b7522b13, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PlayerStateMachine
-  initialState: 0
+  initialStateId: 0
 --- !u!1 &2117543062855548385
 GameObject:
   m_ObjectHideFlags: 0

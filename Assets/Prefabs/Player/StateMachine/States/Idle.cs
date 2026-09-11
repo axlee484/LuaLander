@@ -25,7 +25,7 @@ namespace PlayerStates.States
             if(!movement.IsControlEnabled) return;
             if(fuelManager.FuelRemaning<=0) return;
             
-            if(InputActions.Player.Up.WasPressedThisFrame())
+            if(InputActions.Player.Up.WasPressedThisFrame() || InputActions.Player.Up.IsPressed())
             {
                 InvokeOnChange(PLAYER_STATE.FLYING);
                 return;
@@ -40,6 +40,14 @@ namespace PlayerStates.States
         public override void FixedUpdate()
         {
             CheckFlying();
+        }
+
+        public override void OnCollisionEnter2D(Collision2D collision)
+        {
+            if(collision.collider.TryGetComponent<LandingPad>(out var landingPad))
+            {
+                InvokeOnChange(PLAYER_STATE.LANDING);
+            }
         }
     }
 

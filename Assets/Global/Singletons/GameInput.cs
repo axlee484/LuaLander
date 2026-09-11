@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 public class GameInput : MonoBehaviour
 {
@@ -12,5 +13,20 @@ public class GameInput : MonoBehaviour
         inputActions = new InputActions();
         inputActions.Enable();
         DontDestroyOnLoad(gameObject);
+    }
+
+    public bool IsPressed(InputAction action)
+    {
+        return action.IsPressed();
+    }
+
+    public bool WasPressedThisFrame(InputAction action)
+    {
+        return action.WasPressedThisFrame();
+    }
+
+    public float GetAxis(InputAction action)
+    {
+        return action.ReadValue<float>();
     }
 }

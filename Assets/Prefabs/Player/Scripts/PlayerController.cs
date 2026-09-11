@@ -16,14 +16,13 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private float damagePerImpactSpeed = 10f;
     [SerializeField] private AudioClip collideSound;
     [SerializeField] private AudioSource audioSource;
-    private FuelManager fuelManager;
+    [SerializeField] private Timer landingTimer;
+    [Range(0f, 180f)]
+    [SerializeField] private float maxlandingAngleDegrees;
+    public float MaxLandingAngleDegrees => maxlandingAngleDegrees;
+    public Timer LandingTimer => landingTimer;
     private AudioManager audioManager;
 
-    private void Awake()
-    {
-        fuelManager = GetComponent<FuelManager>();
-        // audioSource.clip = thrustSound;
-    }
     private void Start()
     {
         audioManager = AudioManager.Instance;
