@@ -37,23 +37,21 @@ namespace PlayerStates.States
                 movement.Move(playerTransform.up);
             }
             movement.Rotate(tiltInput);
-
-            if(!linearInput.IsPressed() && tiltInput == Vector2.zero) InvokeOnChange(PLAYER_STATE.IDLE);
-              
+            if(!linearInput.IsPressed() && tiltInput == Vector2.zero) 
+            {
+                InvokeOnChange(PLAYER_STATE.IDLE);
+                return;
+            }              
         }
 
         public override void Enter()
         {
-            playerVisuals.SetAllThrustParticlesActive(true);
-        }
-        public override void Update()
-        {
-            playerVisuals.PlayThrustParticles();
+            playerVisuals.PlayAllThrustParticles(true);
         }
 
         public override void Exit()
         {
-            playerVisuals.SetAllThrustParticlesActive(false);
+            playerVisuals.PlayAllThrustParticles(false);
         }
         public override void FixedUpdate()
         {

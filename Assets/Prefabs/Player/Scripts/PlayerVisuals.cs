@@ -4,64 +4,26 @@ using UnityEngine;
 public class PlayerVisuals : MonoBehaviour
 {
     [SerializeField] private GameObject thrustParticlesNode;
-    [SerializeField] private Timer thurstTimer;
-
-    private PlayerController playerController;
-    private List<ParticleSystem.EmissionModule> thrustParticles = new();
-    private RigidBodyMovement movement;
-    private FuelManager fuelManager;
+    private ParticleSystem[] thrustParticles;
 
     
     private void Awake()
     {
-        playerController = GetComponent<PlayerController>();
-        movement = GetComponent<RigidBodyMovement>();
-        fuelManager = GetComponent<FuelManager>();
-
-        var thrustParticlesComps = thrustParticlesNode.GetComponentsInChildren<ParticleSystem>();
-        foreach(var thrustParticlesComp in thrustParticlesComps)
-        {
-            ParticleSystem.EmissionModule emissionModule = thrustParticlesComp.emission;
-            thrustParticles.Add(emissionModule);
-        }
+        thrustParticles = thrustParticlesNode.GetComponentsInChildren<ParticleSystem>();
     }
-    private void Start()
-    {
-        SetAllThrustParticlesActive(false);
-    }
-    public void SetAllThrustParticlesActive(bool setActive)
-    {
-        if(setActive == false && thurstTimer.enabled) return;
 
-        for(int i = 0; i < thrustParticles.Count; i++)
+    public void PlayAllThrustParticles(bool setActive)
+    {
+        for(int i = 0; i < thrustParticles.Length; i++)
         {
-            SetThrustParticlesActive(i, setActive);
+            PlayThrustParticles(i, setActive);
         }
     }
 
-    private void SetThrustParticlesActive(int particleIndex,bool setActive)
+    private void PlayThrustParticles(int particleIndex,bool setActive)
     {
-        var emission = thrustParticles[particleIndex];
-        emission.enabled = setActive;
+        if(setActive) thrustParticles[particleIndex].Play();
+        else thrustParticles[particleIndex].Stop();
     }
 
-    public void PlayThrustParticles()
-    {
-        if(!movement.IsControlEnabled || fuelManager.FuelRemaning <= 0)
-        {
-            thurstTimer.ResetTimer();
-            SetAllThrustParticlesActive(false); 
-            return;
-        }
-        if (movement.IsForceApplied || movement.IsRotationApplied) 
-        {
-            SetAllThrustParticlesActive(true);
-            thurstTimer.StartTimer();
-            return;
-        }
-        else
-        {
-            SetAllThrustParticlesActive(false);
-        }
-    }
 }
