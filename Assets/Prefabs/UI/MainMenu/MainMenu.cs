@@ -9,9 +9,12 @@ public class MainMenu : MonoBehaviour
 
     private void Awake()
     {
-        sceneManager = SceneManager.Instance;
         startButton.onClick.AddListener(OnStartButtonClick);
         quitButton.onClick.AddListener(OnQuitButtonClick);
+    }
+    void Start()
+    {
+        sceneManager = SceneManager.Instance;
     }
     private void OnStartButtonClick()
     {

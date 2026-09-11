@@ -25,4 +25,5 @@ public class TimedPickup : Pickup
     {
         pickupTimer.ResetTimer();
     }
+    
 }

@@ -10,6 +10,7 @@ public class GameInput : MonoBehaviour
     {
         Instance = this;
         inputActions = new InputActions();
+        inputActions.Enable();
         DontDestroyOnLoad(gameObject);
     }
 }

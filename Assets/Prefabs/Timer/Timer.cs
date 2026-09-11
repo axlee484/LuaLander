@@ -28,16 +28,17 @@ public class Timer: MonoBehaviour
 
     private void StopTimer()
     {
-        timeLeft = 0f;
-        TimeOut?.Invoke();
         enabled = false;
+        TimeOut?.Invoke();
+        timeLeft = 0f;
     }
 
 
     private void Tick()
     {
-        if(timeLeft <= 0) StopTimer();
+        if(!enabled) return;
         timeLeft -= Time.deltaTime;
+        if(timeLeft <= 0) StopTimer();
     }
 
     void Update()

@@ -11,6 +11,7 @@ public enum PLAYER_STATE
 public struct PlayerContext
 {
     public PlayerController playerController;
+    public PlayerVisuals playerVisuals;
     public Rigidbody2D playerBody;
     public Health health;
     public FuelManager fuelManager;
@@ -23,7 +24,8 @@ RequireComponent(typeof(PlayerController)),
 RequireComponent(typeof(Rigidbody2D)), 
 RequireComponent(typeof(Health)), 
 RequireComponent(typeof(FuelManager)), 
-RequireComponent(typeof(RigidBodyMovement))
+RequireComponent(typeof(RigidBodyMovement)),
+RequireComponent(typeof(PlayerVisuals))
 ]
 public class PlayerStateMachine : BaseStateMachine<PLAYER_STATE, PlayerContext>
 {
@@ -36,6 +38,7 @@ public class PlayerStateMachine : BaseStateMachine<PLAYER_STATE, PlayerContext>
             fuelManager = GetComponent<FuelManager>(),
             movement = GetComponent<RigidBodyMovement>(),
             playerTransform = GetComponent<Transform>(),
+            playerVisuals = GetComponent<PlayerVisuals>(),
         };
         
         var idleState = new Idle(PLAYER_STATE.IDLE, context);

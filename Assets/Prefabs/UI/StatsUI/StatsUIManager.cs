@@ -43,16 +43,17 @@ public class StatsUIManager : MonoBehaviour
     private Health health;
     void Awake()
     {
-        scoreManager = ScoreManager.Instance;
-        gameManager = GameManager.Instance;
         statMap = new Dictionary<STAT_TYPE, TextMeshProUGUI>();
         foreach (var stat in stats)
         {
             statMap.Add(stat.Name, stat.Text);
         }
     }
+    
     void Start()
     {
+        scoreManager = ScoreManager.Instance;
+        gameManager = GameManager.Instance;
         playerBody = playerController.GetComponent<Rigidbody2D>();
         fuelManager = playerController.GetComponent<FuelManager>();
         health = playerController.GetComponent<Health>();

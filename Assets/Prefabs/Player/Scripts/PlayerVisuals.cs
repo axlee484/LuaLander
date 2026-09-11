@@ -29,7 +29,7 @@ public class PlayerVisuals : MonoBehaviour
     {
         SetAllThrustParticlesActive(false);
     }
-    private void SetAllThrustParticlesActive(bool setActive)
+    public void SetAllThrustParticlesActive(bool setActive)
     {
         if(setActive == false && thurstTimer.enabled) return;
 
@@ -45,7 +45,7 @@ public class PlayerVisuals : MonoBehaviour
         emission.enabled = setActive;
     }
 
-    private void PlayThrustParticles()
+    public void PlayThrustParticles()
     {
         if(!movement.IsControlEnabled || fuelManager.FuelRemaning <= 0)
         {
@@ -63,10 +63,5 @@ public class PlayerVisuals : MonoBehaviour
         {
             SetAllThrustParticlesActive(false);
         }
-    }
-
-    private void Update()
-    {
-        PlayThrustParticles();
     }
 }

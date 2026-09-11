@@ -6,27 +6,25 @@ public abstract class BaseStateMachine<TStateType, TContext>: MonoBehaviour
 where TStateType : Enum
 where TContext: struct
 {
-    [SerializeField] private TStateType initalState;
-    protected TStateType InitialState => initalState;
+    [SerializeField] private TStateType initialState;
+    protected TStateType InitialState => initialState;
     private BaseState<TStateType, TContext> currentState;
+    public BaseState<TStateType, TContext> CurrentState => currentState;
     protected readonly Dictionary<TStateType, BaseState<TStateType, TContext>> states = new();
     public TContext context;
 
     protected abstract void Setup();
 
-    virtual protected void Awake()
+    virtual protected void Start()
     {
         Setup();
-        currentState = states[initalState];
+        currentState = states[initialState];
         foreach(var (stateName, state) in states)
         {
             state.OnChange += ChangeState;
         }
+        states[initialState].Enter();
         
-    }
-    public void Start()
-    {
-        currentState.Enter();
     }
 
     void Update()

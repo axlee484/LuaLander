@@ -25,16 +25,18 @@ namespace PlayerStates.States
             if(!movement.IsControlEnabled) return;
             if(fuelManager.FuelRemaning<=0) return;
             
-            if(InputActions.Player.Up.IsPressed())
+            if(InputActions.Player.Up.WasPressedThisFrame())
+            {
+                InvokeOnChange(PLAYER_STATE.FLYING);
+                return;
+            }
+            if(Math.Abs(InputActions.Player.Tilt.ReadValue<float>()) > 0)
             {
                 InvokeOnChange(PLAYER_STATE.FLYING);
                 return;
             }
         }
-        public override void Enter()
-        {
-            if(movement.LinearVelocity.magnitude > 0 || movement.AngularVelocity > 0) CheckFlying();
-        }
+        
         public override void FixedUpdate()
         {
             CheckFlying();
