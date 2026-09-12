@@ -20,6 +20,10 @@ PrefabInstance:
       propertyPath: m_Enabled
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 1974819005904447229, guid: 990d1b10226858c11a0f109230d492dc, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3423340909608760084, guid: 990d1b10226858c11a0f109230d492dc, type: 3}
       propertyPath: m_Name
       value: RadialProgressBar

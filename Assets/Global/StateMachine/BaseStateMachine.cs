@@ -4,7 +4,6 @@ using UnityEngine;
 
 public abstract class BaseStateMachine<TStateType, TContext>: MonoBehaviour 
 where TStateType : Enum
-where TContext: struct
 {
     [SerializeField] private TStateType initialStateId;
     protected TStateType InitialState => initialStateId;
@@ -21,7 +20,7 @@ where TContext: struct
         currentState = states[initialStateId];
         foreach(var (stateName, state) in states)
         {
-            state.OnChange += ChangeState;
+            state.StateChange += ChangeState;
         }
         states[initialStateId].Enter();
         

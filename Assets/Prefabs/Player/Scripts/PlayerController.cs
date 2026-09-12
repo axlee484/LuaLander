@@ -16,12 +16,10 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private float damagePerImpactSpeed = 10f;
     [SerializeField] private AudioClip collideSound;
     [SerializeField] private AudioSource audioSource;
-    [SerializeField] private Timer landingTimer;
-    [Range(0f, 180f)]
-    [SerializeField] private float maxlandingAngleDegrees;
-    public float MaxLandingAngleDegrees => maxlandingAngleDegrees;
-    public Timer LandingTimer => landingTimer;
     private AudioManager audioManager;
+
+    private float collisionImpact;
+    public float CollisionImpact => collisionImpact;
 
     private void Start()
     {
@@ -34,13 +32,14 @@ public class PlayerController : MonoBehaviour
         if(collision.relativeVelocity.magnitude <= maxSafeImpactSpeed) return 0;
         var excessSpeed = collision.relativeVelocity.magnitude - maxSafeImpactSpeed;
         audioManager.PlaySfx(collideSound);
-        return damagePerImpactSpeed*excessSpeed;
+        collisionImpact = excessSpeed;
+        return excessSpeed;
     }
 
     void OnCollisionEnter2D(Collision2D collision)
     {
         var impact = GetCollisionImpact(collision);
-        health.TakeDamage(impact);
+        health.TakeDamage(damagePerImpactSpeed*impact);
     }
     void Debug()
     {

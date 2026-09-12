@@ -12,6 +12,14 @@ PrefabInstance:
       propertyPath: multiplier
       value: 5
       objectReference: {fileID: 0}
+    - target: {fileID: 1378425208164977953, guid: f8f8ffd39257f99758f1b6e4e9ab35b0, type: 3}
+      propertyPath: landingTimer
+      value: 
+      objectReference: {fileID: 5175750906104785250}
+    - target: {fileID: 1378425208164977953, guid: f8f8ffd39257f99758f1b6e4e9ab35b0, type: 3}
+      propertyPath: maxlandingAngleDegrees
+      value: 5
+      objectReference: {fileID: 0}
     - target: {fileID: 1659547653441505154, guid: f8f8ffd39257f99758f1b6e4e9ab35b0, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -128,6 +136,10 @@ PrefabInstance:
       propertyPath: m_LocalPosition.x
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7118463586456941479, guid: f8f8ffd39257f99758f1b6e4e9ab35b0, type: 3}
+      propertyPath: countDown
+      value: 5
+      objectReference: {fileID: 0}
     - target: {fileID: 8212941953381601770, guid: f8f8ffd39257f99758f1b6e4e9ab35b0, type: 3}
       propertyPath: m_Size.x
       value: 3.86
@@ -137,3 +149,14 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f8f8ffd39257f99758f1b6e4e9ab35b0, type: 3}
+--- !u!114 &5175750906104785250 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7118463586456941479, guid: f8f8ffd39257f99758f1b6e4e9ab35b0, type: 3}
+  m_PrefabInstance: {fileID: 2673496523863071429}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8887f70dddcf77aae92aac0e6e4888d7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Timer

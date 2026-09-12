@@ -10,13 +10,11 @@ namespace PlayerStates.States
         private readonly InputActions InputActions;
         private readonly FuelManager fuelManager;
         private readonly RigidBodyMovement movement;
-        private readonly Transform playerTransform;
         public Idle(PLAYER_STATE id, PlayerContext context) : base(PLAYER_STATE.IDLE, context)
         {
             InputActions = GameInput.Instance.InputActions;
             fuelManager = Context.fuelManager;
             movement = Context.movement;
-            playerTransform = Context.playerTransform;
         }
 
         
@@ -27,12 +25,12 @@ namespace PlayerStates.States
             
             if(InputActions.Player.Up.WasPressedThisFrame() || InputActions.Player.Up.IsPressed())
             {
-                InvokeOnChange(PLAYER_STATE.FLYING);
+                InvokeStateChange(PLAYER_STATE.FLYING);
                 return;
             }
             if(Math.Abs(InputActions.Player.Tilt.ReadValue<float>()) > 0)
             {
-                InvokeOnChange(PLAYER_STATE.FLYING);
+                InvokeStateChange(PLAYER_STATE.FLYING);
                 return;
             }
         }
@@ -46,7 +44,8 @@ namespace PlayerStates.States
         {
             if(collision.collider.TryGetComponent<LandingPad>(out var landingPad))
             {
-                InvokeOnChange(PLAYER_STATE.LANDING);
+                Context.CurrentLandingPad = landingPad;
+                InvokeStateChange(PLAYER_STATE.LANDING);
             }
         }
     }

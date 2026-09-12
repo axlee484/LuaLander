@@ -34,6 +34,8 @@ Transform:
   m_Children:
   - {fileID: 5563883732867637833}
   - {fileID: 4783060873386413840}
+  - {fileID: 994056120286956475}
+  - {fileID: 6300383296066286388}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!60 &2334675340558149800
@@ -103,6 +105,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::LandingPad
   multiplier: 1
+  landingTimer: {fileID: 7118463586456941479}
+  maxlandingAngleDegrees: 10
 --- !u!114 &5326188455535137621
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -389,3 +393,230 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_SpriteSortPoint: 0
   m_BlendShapeWeights: []
+--- !u!1001 &402936429461737324
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 1659547653441505154}
+    m_Modifications:
+    - target: {fileID: -1774884005604213557, guid: 234fa2ab07b4fcbc4b66208fbb5dd72a, type: 3}
+      propertyPath: countDown
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: -1774884005604213557, guid: 234fa2ab07b4fcbc4b66208fbb5dd72a, type: 3}
+      propertyPath: isFixedTimeScale
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 602387556086072535, guid: 234fa2ab07b4fcbc4b66208fbb5dd72a, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0.18563
+      objectReference: {fileID: 0}
+    - target: {fileID: 602387556086072535, guid: 234fa2ab07b4fcbc4b66208fbb5dd72a, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 2.4659
+      objectReference: {fileID: 0}
+    - target: {fileID: 602387556086072535, guid: 234fa2ab07b4fcbc4b66208fbb5dd72a, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 602387556086072535, guid: 234fa2ab07b4fcbc4b66208fbb5dd72a, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 602387556086072535, guid: 234fa2ab07b4fcbc4b66208fbb5dd72a, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 602387556086072535, guid: 234fa2ab07b4fcbc4b66208fbb5dd72a, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 602387556086072535, guid: 234fa2ab07b4fcbc4b66208fbb5dd72a, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 602387556086072535, guid: 234fa2ab07b4fcbc4b66208fbb5dd72a, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 602387556086072535, guid: 234fa2ab07b4fcbc4b66208fbb5dd72a, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 602387556086072535, guid: 234fa2ab07b4fcbc4b66208fbb5dd72a, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3263997053910420145, guid: 234fa2ab07b4fcbc4b66208fbb5dd72a, type: 3}
+      propertyPath: m_Name
+      value: Timer
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 234fa2ab07b4fcbc4b66208fbb5dd72a, type: 3}
+--- !u!4 &994056120286956475 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 602387556086072535, guid: 234fa2ab07b4fcbc4b66208fbb5dd72a, type: 3}
+  m_PrefabInstance: {fileID: 402936429461737324}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &7118463586456941479 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: -1774884005604213557, guid: 234fa2ab07b4fcbc4b66208fbb5dd72a, type: 3}
+  m_PrefabInstance: {fileID: 402936429461737324}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8887f70dddcf77aae92aac0e6e4888d7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Timer
+--- !u!1001 &6511242138992276142
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 1659547653441505154}
+    m_Modifications:
+    - target: {fileID: 951351337023799706, guid: 804841e9213d131ca8e588f6f63a93c1, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0.18563
+      objectReference: {fileID: 0}
+    - target: {fileID: 951351337023799706, guid: 804841e9213d131ca8e588f6f63a93c1, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 2.4659
+      objectReference: {fileID: 0}
+    - target: {fileID: 951351337023799706, guid: 804841e9213d131ca8e588f6f63a93c1, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 951351337023799706, guid: 804841e9213d131ca8e588f6f63a93c1, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 951351337023799706, guid: 804841e9213d131ca8e588f6f63a93c1, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 951351337023799706, guid: 804841e9213d131ca8e588f6f63a93c1, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 951351337023799706, guid: 804841e9213d131ca8e588f6f63a93c1, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 951351337023799706, guid: 804841e9213d131ca8e588f6f63a93c1, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 951351337023799706, guid: 804841e9213d131ca8e588f6f63a93c1, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 951351337023799706, guid: 804841e9213d131ca8e588f6f63a93c1, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6926784519162668839, guid: 804841e9213d131ca8e588f6f63a93c1, type: 3}
+      propertyPath: m_Name
+      value: RadialProgressBar
+      objectReference: {fileID: 0}
+    - target: {fileID: 9091791835314062625, guid: 804841e9213d131ca8e588f6f63a93c1, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9091791835314062625, guid: 804841e9213d131ca8e588f6f63a93c1, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 6926784519162668839, guid: 804841e9213d131ca8e588f6f63a93c1, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 4815796715224109286}
+  m_SourcePrefab: {fileID: 100100000, guid: 804841e9213d131ca8e588f6f63a93c1, type: 3}
+--- !u!114 &1357675721669161597 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 5227547607029727443, guid: 804841e9213d131ca8e588f6f63a93c1, type: 3}
+  m_PrefabInstance: {fileID: 6511242138992276142}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 67db9e8f0e2ae9c40bc1e2b64352a6b4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.Slider
+--- !u!1 &4214372991568303497 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6926784519162668839, guid: 804841e9213d131ca8e588f6f63a93c1, type: 3}
+  m_PrefabInstance: {fileID: 6511242138992276142}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &4815796715224109286
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4214372991568303497}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4c149720defe1ab529696df2ed73d1e9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::TimerProgressBar
+  slider: {fileID: 1357675721669161597}
+  gradient:
+    serializedVersion: 2
+    key0: {r: 1, g: 1, b: 1, a: 1}
+    key1: {r: 1, g: 1, b: 1, a: 1}
+    key2: {r: 0, g: 0, b: 0, a: 0}
+    key3: {r: 0, g: 0, b: 0, a: 0}
+    key4: {r: 0, g: 0, b: 0, a: 0}
+    key5: {r: 0, g: 0, b: 0, a: 0}
+    key6: {r: 0, g: 0, b: 0, a: 0}
+    key7: {r: 0, g: 0, b: 0, a: 0}
+    ctime0: 0
+    ctime1: 65535
+    ctime2: 0
+    ctime3: 0
+    ctime4: 0
+    ctime5: 0
+    ctime6: 0
+    ctime7: 0
+    atime0: 0
+    atime1: 65535
+    atime2: 0
+    atime3: 0
+    atime4: 0
+    atime5: 0
+    atime6: 0
+    atime7: 0
+    m_Mode: 0
+    m_ColorSpace: -1
+    m_NumColorKeys: 2
+    m_NumAlphaKeys: 2
+  progress: {fileID: 5843461296019085064}
+  indicator: {fileID: 0}
+  timer: {fileID: 7118463586456941479}
+--- !u!114 &5843461296019085064 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 811968637564249510, guid: 804841e9213d131ca8e588f6f63a93c1, type: 3}
+  m_PrefabInstance: {fileID: 6511242138992276142}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.Image
+--- !u!4 &6300383296066286388 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 951351337023799706, guid: 804841e9213d131ca8e588f6f63a93c1, type: 3}
+  m_PrefabInstance: {fileID: 6511242138992276142}
+  m_PrefabAsset: {fileID: 0}

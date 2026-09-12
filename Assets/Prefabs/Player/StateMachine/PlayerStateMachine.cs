@@ -8,7 +8,7 @@ public enum PLAYER_STATE
     LANDING,
     LANDED
 }
-public struct PlayerContext
+public class PlayerContext
 {
     public PlayerController playerController;
     public PlayerVisuals playerVisuals;
@@ -17,6 +17,7 @@ public struct PlayerContext
     public FuelManager fuelManager;
     public RigidBodyMovement movement;
     public Transform playerTransform;
+    public LandingPad CurrentLandingPad {get; set;}
 };
 
 [

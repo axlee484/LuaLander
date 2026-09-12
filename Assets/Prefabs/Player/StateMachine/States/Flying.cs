@@ -21,12 +21,12 @@ namespace PlayerStates.States
 
         
         private void Fly()
-        {  
+        {   if(fuelManager.FuelRemaning<=0) InvokeStateChange(PLAYER_STATE.IDLE);
             var linearInput = InputActions.Player.Up.IsPressed();    
             var tilt = InputActions.Player.Tilt.ReadValue<float>();
             if(!linearInput && tilt == 0)
             {
-                InvokeOnChange(PLAYER_STATE.IDLE);
+                InvokeStateChange(PLAYER_STATE.IDLE);
                 return;
             }
             

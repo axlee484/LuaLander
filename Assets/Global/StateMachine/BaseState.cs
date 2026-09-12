@@ -3,12 +3,11 @@ using UnityEngine;
 
 public abstract class BaseState<TStateType, TContext> 
 where TStateType : Enum
-where TContext: struct
 {
-    public event Action<TStateType> OnChange;
-    protected void InvokeOnChange(TStateType state)
+    public event Action<TStateType> StateChange;
+    protected void InvokeStateChange(TStateType state)
     {
-        OnChange?.Invoke(state);
+        StateChange?.Invoke(state);
     }
     private readonly TContext context;
     private readonly TStateType id;

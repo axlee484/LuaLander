@@ -1,7 +1,7 @@
 using UnityEngine;
 using UnityEngine.UI;
 
-public class ProgressBar : MonoBehaviour
+public abstract class ProgressBar : MonoBehaviour
 {
     [SerializeField] private Slider slider;
     [SerializeField] private Gradient gradient;
@@ -17,14 +17,14 @@ public class ProgressBar : MonoBehaviour
     private void UpdateIndicator()
     {
         if(indicator == null) return;
-        if(Value == 0) indicator.enabled = false;
+        if(slider.value == 0) indicator.enabled = false;
         else indicator.enabled = true;
     }
     private void UpdateSlider()
     {
         slider.value = Value;
         progress.color = gradient.Evaluate(slider.normalizedValue);
-
+        UpdateIndicator();
     }
     void Update()
     {
