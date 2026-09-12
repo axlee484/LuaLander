@@ -603,6 +603,7 @@ MonoBehaviour:
     m_NumAlphaKeys: 2
   progress: {fileID: 5843461296019085064}
   indicator: {fileID: 0}
+  resetOnFull: 1
   timer: {fileID: 7118463586456941479}
 --- !u!114 &5843461296019085064 stripped
 MonoBehaviour:

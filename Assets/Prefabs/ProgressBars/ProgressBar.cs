@@ -9,6 +9,8 @@ public abstract class ProgressBar : MonoBehaviour
     [SerializeField] private Image indicator;
     public virtual float MaxValue {get;} = 1.0f;
     public virtual float Value {get;} = 0.0f;
+    [SerializeField] private bool resetOnFull;
+    public bool ResetOnFull => resetOnFull;
     private void Awake()
     {
         slider.maxValue = MaxValue;
@@ -25,6 +27,7 @@ public abstract class ProgressBar : MonoBehaviour
         slider.value = Value;
         progress.color = gradient.Evaluate(slider.normalizedValue);
         UpdateIndicator();
+        if(resetOnFull && slider.value == MaxValue) slider.value = 0;
     }
     void Update()
     {
